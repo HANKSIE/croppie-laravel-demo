@@ -1,0 +1,1 @@
+@include('circle-image-cropper')
