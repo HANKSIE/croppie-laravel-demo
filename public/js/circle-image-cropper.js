@@ -1744,40 +1744,40 @@ __webpack_require__.r(__webpack_exports__);
 
 function circleImageCropperInit(_ref) {
   var image = _ref.image,
+    origin = _ref.origin,
     binder = _ref.binder,
     modalId = _ref.modalId,
-    uploadInput = _ref.uploadInput,
-    uploadBtn = _ref.uploadBtn,
     cropBtn = _ref.cropBtn;
   micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].init();
   var basic = new (croppie__WEBPACK_IMPORTED_MODULE_0___default())(binder, {
     viewport: {
       width: 150,
-      height: 150,
-      type: "circle"
+      height: 150
     },
     boundary: {
       width: 300,
       height: 300
-    }
+    },
+    enableZoom: false
   });
   image.addEventListener("click", function () {
     micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].show(modalId);
     basic.bind({
-      url: image.src
+      url: origin.value
     });
   });
-  uploadBtn.addEventListener("click", function () {
-    var tempInput = document.createElement("input");
-    tempInput.type = "file";
-    tempInput.onchange = function (e) {
-      if (e.target.files.length === 0) return;
-      basic.bind({
-        url: URL.createObjectURL(e.target.files[0])
-      });
-    };
-    tempInput.click();
-  });
+
+  // uploadBtn.addEventListener("click", () => {
+  //     const tempInput = document.createElement("input");
+  //     tempInput.type = "file";
+  //     tempInput.onchange = function (e) {
+  //         if (e.target.files.length === 0) return;
+  //         basic.bind({
+  //             url: URL.createObjectURL(e.target.files[0]),
+  //         });
+  //     };
+  //     tempInput.click();
+  // });
   cropBtn.addEventListener("click", function () {
     basic.result("blob").then(function (blob) {
       image.src = URL.createObjectURL(blob);
