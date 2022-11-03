@@ -9,7 +9,6 @@ function circleImageCropperInit({ image, origin, binder, modalId, cropBtn }) {
             width: 300,
             height: 300,
         },
-        enableZoom: false,
     });
 
     image.addEventListener("click", () => {

@@ -1757,8 +1757,7 @@ function circleImageCropperInit(_ref) {
     boundary: {
       width: 300,
       height: 300
-    },
-    enableZoom: false
+    }
   });
   image.addEventListener("click", function () {
     micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].show(modalId);
